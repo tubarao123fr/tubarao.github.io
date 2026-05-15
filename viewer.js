@@ -1,4 +1,4 @@
-const url = "https://drive.google.com/uc?export=download&id=187DslUF9mt-9ZfTY6ioq26Yv4ubta1XD";
+const url = "https://github.com/tubarao123fr/tubarao.github.io/releases/download/v1.0/DRAGON.BALL.TOME.2.-.Akira.Toriyama.pdf";
 
 const container = document.getElementById("viewer");
 
