@@ -55,4 +55,37 @@ canvas {
   max-width: 95vw;
   height: auto;
   box-shadow: 0 0 10px black;
+  display: block;
+}
+
+.page-placeholder {
+  background: #1e1e1e;
+  border-radius: 4px;
+  box-shadow: 0 0 10px black;
+  max-width: 95vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, #2a2a2a 50%, transparent 100%);
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.page-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f55;
+  font-size: 0.9rem;
+  box-shadow: 0 0 10px black;
+  min-height: 80px;
 }
