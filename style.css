@@ -3,6 +3,44 @@ body {
   color: white;
   text-align: center;
   font-family: Arial;
+  margin: 0;
+  padding: 0;
+}
+
+#upload-zone {
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+#upload-label {
+  display: inline-block;
+  cursor: pointer;
+  background: #222;
+  border: 2px dashed #555;
+  border-radius: 12px;
+  padding: 30px 50px;
+  font-size: 1.1rem;
+  color: #aaa;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+#upload-label:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+#fileInput {
+  display: none;
+}
+
+#status {
+  margin-top: 15px;
+  color: #aaa;
+  font-size: 0.95rem;
 }
 
 #viewer {
