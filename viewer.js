@@ -1,4 +1,4 @@
-const url = "https://github.com/tubarao123fr/tubarao.github.io/releases/download/v1.0/DRAGON.BALL.TOME.2.-.Akira.Toriyama.pdf";
+const url = "https://github.com/tubarao123fr/tubarao.github.io/releases/download/v1.0/DRAGON.BALL.TOME.2.-Akira.Toriyama.pdf";
 
 const container = document.getElementById("viewer");
 
