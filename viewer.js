@@ -1,32 +1,22 @@
-const identifier = "dragon-ball-tome-2-akira-toriyama";
-const container = document.getElementById("viewer");
-
-// Configuration du worker (obligatoire pour PDF.js)
 pdfjsLib.GlobalWorkerOptions.workerSrc =
   "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
+const container = document.getElementById("viewer");
+const status = document.getElementById("status");
+
+const pdfUrl = "DRAGON BALL TOME 2 - Akira Toriyama.pdf";
+
 async function loadManga() {
+  status.textContent = "Chargement en cours...";
+
   try {
-    // 1. On construit l'URL directe vers Archive.org
-    // Note: On utilise le nom exact du fichier tel qu'il apparaît dans l'erreur CORS
-    const fileName = "DRAGON%20BALL%20TOME%202%20-%20Akira%20Toriyama.pdf";
-    const originalUrl = `https://archive.org/download/${identifier}/${fileName}`;
-    
-    // 2. ON PASSE PAR LE PROXY (Crucial pour éviter l'erreur de ta capture)
-    const proxiedUrl = "https://corsproxy.io/?" + encodeURIComponent(originalUrl);
+    const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
 
-    console.log("Tentative de chargement via proxy :", proxiedUrl);
+    status.textContent = `${pdf.numPages} pages détectées — rendu en cours...`;
 
-    // 3. Chargement du document
-    const loadingTask = pdfjsLib.getDocument(proxiedUrl);
-    const pdf = await loadingTask.promise;
-
-    console.log("PDF chargé ! Nombre de pages :", pdf.numPages);
-
-    // 4. Rendu des pages une par une
     for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
       const page = await pdf.getPage(pageNum);
-      const scale = 1.2; // Ajuste la taille si besoin
+      const scale = 1.2;
       const viewport = page.getViewport({ scale });
 
       const canvas = document.createElement("canvas");
@@ -35,19 +25,17 @@ async function loadManga() {
       canvas.height = viewport.height;
       container.appendChild(canvas);
 
-      await page.render({
-        canvasContext: ctx,
-        viewport: viewport
-      }).promise;
-      
-      console.log(`Page ${pageNum} rendue`);
+      await page.render({ canvasContext: ctx, viewport }).promise;
+
+      status.textContent = `Page ${pageNum} / ${pdf.numPages}`;
     }
 
-  } catch (error) {
-    console.error("Erreur détaillée :", error);
-    container.innerHTML = `<p style="color:red">Erreur : ${error.message}<br>Vérifie la console pour plus de détails.</p>`;
+    status.textContent = "✅ Chargement terminé !";
+
+  } catch (err) {
+    console.error(err);
+    status.textContent = `❌ Erreur : ${err.message}`;
   }
 }
 
-// Lancer le chargement
 loadManga();

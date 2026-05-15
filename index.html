@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Lecteur PDF vertical</title>
+  <title>Lecteur PDF</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Mon lecteur de scans</h2>
+  <div id="upload-zone">
+    <h1>📖 Mon lecteur de scans</h1>
+    <p id="status"></p>
+  </div>
 
-<div id="viewer"></div>
+  <div id="viewer"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="viewer.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="viewer.js"></script>
 
 </body>
 </html>
