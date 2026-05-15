@@ -7,33 +7,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+ 
   <div id="menu">
     <h1>🐉 Dragon Ball</h1>
-
-    <div class="tome-section">
-      <h2>Tome 2</h2>
-      <div class="chapters" id="tome2-chapters">
-        <button onclick="loadParts('tome2', ['pdf/Tome 2/DRAGON BALL TOME 2 - Akira Toriyama_split_1.pdf', 'pdf/Tome 2/DRAGON BALL TOME 2 - Akira Toriyama_split_2.pdf'])">
-          Lire le Tome 2 complet
-        </button>
-      </div>
-    </div>
-
-    <div class="tome-section">
-      <h2>Tome 3</h2>
-      <div class="chapters" id="tome3-chapters"></div>
-    </div>
+    <div id="tomes-container"></div>
   </div>
-
+ 
   <div id="reader" class="hidden">
     <button id="back-btn" onclick="goBack()">← Retour</button>
     <p id="status"></p>
     <div id="viewer"></div>
   </div>
-
+ 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script src="viewer.js"></script>
-
+ 
 </body>
 </html>
+ 
