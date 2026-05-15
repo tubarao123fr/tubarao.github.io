@@ -1,4 +1,4 @@
-const url = "https://drive.google.com/uc?export=download&id=187DslUF9mt-9ZfTY6ioq26Yv4ubta1XD";
+const url = "https://drive.google.com/file/d/187DslUF9mt-9ZfTY6ioq26Yv4ubta1XD/view"
 
 const container = document.getElementById("viewer");
 
