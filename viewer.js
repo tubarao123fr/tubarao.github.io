@@ -1,4 +1,4 @@
-const url = "pdf/tonfichier.pdf";
+const url = "https://drive.google.com/uc?export=download&id=187DslUF9mt-9ZfTY6ioq26Yv4ubta1XD";
 
 const container = document.getElementById("viewer");
 
