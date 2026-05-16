@@ -81,7 +81,7 @@ async function loadParts(tomeNum, parts) {
     for (const pdf of pdfs) {
       for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
         const page = await pdf.getPage(pageNum);
-        const scale = 1.2;
+        const scale = window.innerWidth < 768 ? 2.5 : 1.2;
         const viewport = page.getViewport({ scale });
  
         const canvas = document.createElement("canvas");
